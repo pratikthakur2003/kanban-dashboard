@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Kanban Dashboard - Recipe | TaskChef</title>
+  </head>
+  <body class="">
+    <div class="container">
+      <!-- Main Section -->
+      <main>
+        <div class="nav">
+          <h1 class="recipe-name">KANBAN DASHBOARD</h1>
+          <span class="material-icons-sharp" id="menuButton"> menu </span>
+        </div>
+        <div class="step-section">
+          <div class="to-do step-container" id="to-do">
+            <div class="main-headings">
+              <h2>To-Do</h2>
+              <span class="material-icons-sharp" id="to-do-arrow"> arrow_drop_down </span>
+            </div>
+            <div class="to-do-steps steps">
+              
+            </div>
+          </div>
+          <div class="in-progress step-container" id="in-progress">
+            <div class="main-headings">
+              <h2>In-Progress</h2>
+              <span class="material-icons-sharp" id="in-progress-arrow"> arrow_drop_down </span>
+            </div>
+            <div class="in-progress-steps steps">
+              
+            </div>
+          </div>
+          <div class="completed step-container" id="completed">
+            <div class="main-headings">
+              <h2>Completed</h2>
+              <span class="material-icons-sharp" id="completed-arrow"> arrow_drop_down </span>
+            </div>
+            <div class="completed-steps steps">
+              
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- End of Main Section -->
+
+      <!-- Template Section -->
+      <template class="template-to-do" id="template-to-do">
+        <div class="step-lists" id="step-lists">
+          <input type="checkbox" id="step-checkbox" class="to-do-checkbox" />
+          <h3 class="dynamic-heading">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
+            provident?
+          </h3>
+        </div>
+      </template>
+
+      <template class="template-in-progress" id="template-in-progress">
+        <div class="step-lists" id="step-lists">
+          <input type="checkbox" id="step-checkbox" class="in-progress-checkbox" />
+          <h3 class="dynamic-heading">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
+            provident?
+          </h3>
+        </div>
+      </template>
+
+      <template class="template-completed" id="template-completed">
+        <div class="step-lists" id="step-lists">
+          <input type="checkbox" id="step-checkbox" class="completed-checkbox" />
+          <h3 class="dynamic-heading">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
+            provident?
+          </h3>
+        </div>
+      </template>
+      <!-- End of Template Section -->
+
+      <!-- Utility Section -->
+      <aside>
+        <div class="utility-section">
+          <div class="utilities-header">
+            <div class="head" id="head">
+              <div class="close">
+                <span class="material-icons-sharp" id="close-btn"> close </span>
+              </div>
+              <div class="user" id="user">
+                <span class="material-icons-sharp" id="user-logo">
+                  account_circle
+                </span>
+                <h2 id="user-name">Pratik Thakur</h2>
+              </div>
+            </div>
+            <div class="utilities" id="utilities">
+              <div class="faq imp" id="faq">
+                <span class="material-icons-sharp" id="faq-logo"> help </span>
+                <h3>FAQ</h3>
+              </div>
+              <div class="toggle imp" id="toggle">
+                <span class="material-icons-sharp" id="mode-logo">
+                  dark_mode
+                </span>
+                <h3 id="toggle-text">Dark Mode</h3>
+              </div>
+            </div>
+          </div>
+          <div class="options" id="options">
+            <a class="utility-options" id="summary">
+              <span class="material-icons-sharp"> summarize </span>
+              <h2>Summary</h2>
+            </a>
+            <a class="utility-options" id="servings">
+              <span class="material-icons-sharp"> local_dining </span>
+              <h2>Servings</h2>
+            </a>
+            <a class="utility-options" id="timer">
+              <span class="material-icons-sharp"> timer </span>
+              <h2>Timer</h2>
+            </a>
+            <a class="utility-options" id="tips">
+              <span class="material-icons-sharp"> tips_and_updates </span>
+              <h2>Tips</h2>
+            </a>
+            <a class="utility-options" id="logout">
+              <span class="material-icons-sharp back-icon"> logout </span>
+              <h2>Back</h2>
+            </a>
+          </div>
+        </div>
+      </aside>
+      <!-- End of Utility Section -->
+
+      <!-- Modal Section -->
+      <div class="summary-modal modal" id="summary-modal">
+        <div class="summary-header optionsHeader">
+          <h1>SUMMARY</h1>
+          <span class="summart-close" id="summary-close">&times;</span>
+        </div>
+        <div class="summary-table">
+          <table>
+            <tr>
+              <th><h2>Recipe Name</h2></th>
+              <td id="recipe-name"></td>
+            </tr>
+            <tr>
+              <th><h2>Recipe Type</h2></th>
+              <td id="recipe-type">-</td>
+            </tr>
+            
+            <tr>
+              <th><h2>Time</h2></th>
+              <td id="recipe-time"></td>
+            </tr>
+            <tr>
+              <th><h2>Servings</h2></th>
+              <td id="recipe-serve"></td>
+            </tr>
+            <tr>
+              <th><h2>Price(per servings)</h2></th>
+              <td id="recipe-price"></td>
+            </tr>
+            <tr>
+              <th><h2>Description</h2></th>
+              <td id="recipe-description"></td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+
+      <div class="servings-modal modal" id="servings-modal">
+        <div class="servings-header optionsHeader">
+          <h1>SERVINGS</h1>
+          <span class="servings-close" id="servings-close">&times;</span>
+        </div>
+        <div class="servings-content">
+          <div class="servings-table">
+            <table>
+              <tr>
+                <th><h2>Current Servings</h2></th>
+                <td><h2 id="current-servings">2</h2></td>
+              </tr>
+              <tr>
+                <th><h2>New Servings</h2></th>
+                <td>
+                  <input
+                    type="number"
+                    id="new-servings"
+                    placeholder="Enter Value"
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="update-servings" id="update-servings">Value Updated</div>
+          <div class="save-servings" id="save-servings">SAVE</div>
+        </div>
+      </div>
+
+      <div class="timer-modal modal" id="timer-modal">
+        <div class="timer-header optionsHeader">
+          <h1>TIMER</h1>
+          <span class="timer-close" id="timer-close">&times;</span>
+        </div>
+        <div class="timer-content">
+          <div class="set-timer" id="set-timer">
+            <h2>SET TIME :</h2>
+            <input type="number" class="set-hours" id="set-hours" />
+            <h3>HRS</h3>
+            <input type="number" class="set-mins" id="set-mins" />
+            <h3>MINS</h3>
+            <input type="number" class="set-secs" id="set-secs" />
+            <h3>SECS</h3>
+            <div class="set-btn btns" id="set-btn">SET</div>
+          </div>
+          <div class="show-timer" id="show-timer">
+            <span class="hrs" id="hrs">00</span>
+            <h2>:</h2>
+            <span class="mins" id="mins">00</span>
+            <h2>:</h2>
+            <span class="secs" id="secs">00</span>
+          </div>
+          <div class="timer-btns" id="timer-btns">
+            <div class="start-stop-btn btns" id="start-stop-btn">START</div>
+            <div class="clear-btn btns" id="clear-btn">CLEAR</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips-modal modal" id="tips-modal">
+        <div class="tips-header optionsHeader">
+          <h1>TIPS</h1>
+          <span class="tips-close" id="tips-close">&times;</span>
+        </div>
+        <div class="tips-content" id="tips-content">
+          <ol id="tips-list">
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
+              obcaecati vel esse rerum modi ipsa porro eaque ab cumque qui?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
+              obcaecati vel esse rerum modi ipsa porro eaque ab cumque qui?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
+              obcaecati vel esse rerum modi ipsa porro eaque ab cumque qui?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
+              obcaecati vel esse rerum modi ipsa porro eaque ab cumque qui?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
+              obcaecati vel esse rerum modi ipsa porro eaque ab cumque qui?
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="logout-modal modal" id="logout-modal">
+        <div class="logout-header optionsHeader">
+          <h1></h1>
+        </div>
+        <div class="logout-content">
+          <h2>ARE YOU SURE YOU WANT TO back ?</h2>
+          <a
+            href="./index.html"
+            class="logout-btn lo_btns"
+            id="logout-btn"
+            >Yes, Go back</a
+          >
+          <div class="go-back lo_btns" id="go-back">No, remain here</div>
+        </div>
+      </div>
+      <div class="overlay" id="overlay"></div>
+      <!-- End of Modal Section -->
+    </div>
+    
+
+    <script src="index.js" defer></script>
+  </body>
+</html>
